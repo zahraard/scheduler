@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import InterviewerList from "../InterviewerList"
 
-export default function Header(props){
+export default function Form(props){
   //setName and setInterviewer
   const [name, setName] = useState(props.name || "")
   const [interviewer, setInterviewer ] = useState(props.interviewer || null);
