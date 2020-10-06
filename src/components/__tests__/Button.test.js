@@ -52,7 +52,6 @@ it("renders a disabled button", () => {
   );
    
   const button = getByText("Disabled");
-  console.log(button)
   fireEvent.click(button);
 
   expect(handleClick).toHaveBeenCalledTimes(0);
