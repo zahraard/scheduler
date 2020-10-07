@@ -20,7 +20,7 @@ function DayListItem(props){
     "day-list__item--full": spots === 0
   })
   return (
-    <li className={dayClass} onClick={()=> setDay(name)} selected>
+    <li data-testid="day" className={dayClass} onClick={()=> setDay(name)} selected>
       <h2 className="text--regular">{name}</h2> 
       <h3 className="text--light">{formatSpots(spots)}</h3>
     </li>
