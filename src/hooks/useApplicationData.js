@@ -66,8 +66,8 @@ function useApplicationData() {
       })
   },[]);
   const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL)
-  ws.onopen = () => console.log('ws opened');
-  ws.onclose = () => console.log('ws closed');
+  // ws.onopen = () => console.log('ws opened');
+  // ws.onclose = () => console.log('ws closed');
   const initWebsocket = () => {
     ws.onmessage = (event) => {
       const response = JSON.parse(event.data);
