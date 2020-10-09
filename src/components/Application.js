@@ -2,9 +2,13 @@ import React from "react";
 import useApplicationData from "../hooks/useApplicationData";
 
 import DayList from "components/DayList";
-import Appointment from "components/Appointment"
+import Appointment from "components/Appointment";
 import "components/Application.scss";
-import { getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors"
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "../helpers/selectors";
 
 export default function Application(props) {
   const {
@@ -12,23 +16,25 @@ export default function Application(props) {
     setDay,
     bookInterview,
     cancelInterview,
-    appointments1
   } = useApplicationData();
-  
-  const interviewersForDay = getInterviewersForDay(state, state.day)
 
-  const schedule = getAppointmentsForDay(state, state.day).map(appointment => {
-    return (<Appointment 
-    key={appointment.id}
-    {...appointment}
-    interviewers={interviewersForDay}
-    bookInterview={bookInterview}
-    cancelInterview={cancelInterview}
-    interview={getInterview(state, appointment.interview)}
-    />)
-  })
+  const interviewersForDay = getInterviewersForDay(state, state.day);
 
-  
+  const schedule = getAppointmentsForDay(state, state.day).map(
+    (appointment) => {
+      return (
+        <Appointment
+          key={appointment.id}
+          {...appointment}
+          interviewers={interviewersForDay}
+          bookInterview={bookInterview}
+          cancelInterview={cancelInterview}
+          interview={getInterview(state, appointment.interview)}
+        />
+      );
+    }
+  );
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -39,11 +45,7 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-        <DayList
-          days={state.days}
-          day={state.day}
-          setDay={setDay}
-        />
+          <DayList days={state.days} day={state.day} setDay={setDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"

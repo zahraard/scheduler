@@ -50,7 +50,7 @@ it("renders a disabled button", () => {
       Disabled
     </Button>
   );
-   
+
   const button = getByText("Disabled");
   fireEvent.click(button);
 
